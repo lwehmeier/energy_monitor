@@ -4,5 +4,8 @@
   <node pkg="energy_monitor" type="energy_monitor.py" name="energy_monitor">
     <param name="rate" value="2"/>
   </node>
+  <node pkg="energy_monitor" type="energy_per_step.py" name="energy_per_step">
+    <param name="rate" value="2"/>
+  </node>
 
 </launch>
