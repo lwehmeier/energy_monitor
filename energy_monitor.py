@@ -51,12 +51,12 @@ def my_callback(event):
     d_pub.publish(Int32(monitor_drive.energy/3600.0))
 
 rospy.init_node('energy_monitor')
-rospy.Timer(rospy.Duration(0.5), my_callback)
 d_pub = rospy.Publisher("/energy/drive", Int32, queue_size=3)
 e_pub = rospy.Publisher("/energy/electronics", Int32, queue_size=3)
 rospy.Subscriber("/batteries/drive/current", Float32, callbackCD)
 rospy.Subscriber("/batteries/drive/voltage", Float32, callbackVD)
 rospy.Subscriber("/batteries/electronics/current", Float32, callbackCE)
+rospy.Timer(rospy.Duration(0.5), my_callback)
 rospy.Subscriber("/batteries/electronics/voltage", Float32, callbackVE)
 r = rospy.Rate(10) # 10hz
 rospy.spin()
